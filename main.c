@@ -43,7 +43,7 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
         #include "./src/osx_utils.c"
 #endif
 
-int main(){
+int main(int argc, char const *argv[]){
 
     initializeBoard('*', '+');
     printMatrix();
