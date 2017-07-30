@@ -29,7 +29,7 @@ Nome progetto	: Halma
 Git             : https://github.com/Martos/Halma.git
 Branch          : master
 WebSite         : www.galaxyserver.ovh/consoleHalma
-                                        
+
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,6 +40,7 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
         #include "./src/gameEngine.h"
     #elif __APPLE__
         #include "./src/gameEngine.h"
+        #include "./src/osx_utils.c"
 #endif
 
 int main(){
