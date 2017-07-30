@@ -57,3 +57,8 @@ void printMatrix(){
 
     }
 }
+
+//Sposta la pedina
+void move(){
+
+}
