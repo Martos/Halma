@@ -35,12 +35,13 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 #include <stdlib.h>
 
 #ifdef __linux__ 
-        #include "./src/gameEngine.h"
+        #include "./src/gameEngines.h"
     #elif _WIN32
-        #include "./src/gameEngine.h"
+        #include "./src/gameEngines.h"
+        #include "./src/win_utils.h"
     #elif __APPLE__
-        #include "./src/gameEngine.h"
-        #include "./src/osx_utils.c"
+        #include "./src/gameEngines.h"
+        #include "./src/osx_utils.h"
 #endif
 
 int main(int argc, char const *argv[]){

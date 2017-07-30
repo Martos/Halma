@@ -1,0 +1,3 @@
+void consolePause(){
+    system("pause");
+}

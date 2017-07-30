@@ -45,8 +45,8 @@ void initializeBoard(char playerIcon1, char playerIcon2){
 
 //stampa il terreno del gioco
 void printMatrix(){
-    int i,
-        j;
+    int i = 0,
+        j = 0;
     
     for(i = 0; i < ROWS; i++){
 
