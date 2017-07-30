@@ -25,15 +25,27 @@
 
 Author 			: Mauro Cipriani - Paolo Laddomada - Ivonne Ciocia
 Corso 			: ITPS [A-L]
-Nome progetto	: Halma 
-                                         
+Nome progetto	: Halma
+Git             : https://github.com/Martos/Halma.git
+Branch          : master
+WebSite         : www.galaxyserver.ovh/consoleHalma
+                                        
 */
 #include <stdio.h>
+#include <stdlib.h>
 
-int main () {
-	
-	
-	
-	printf ("mauro gay\n");
-	
+#ifdef __linux__ 
+        #include "./src/gameEngine.h"
+    #elif _WIN32
+        #include "./src/gameEngine.h"
+    #elif __APPLE__
+        #include "./src/gameEngine.h"
+#endif
+
+int main(){
+
+    initializeBoard('*', '+');
+    printMatrix();
+
+    return 0;
 }
