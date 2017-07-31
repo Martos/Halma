@@ -1,22 +1,9 @@
-#define ROWS 16
-#define COLUMNS 16
+#include "../include/gameEngine.h"
 
-//Mosse massime possibili
-#define MAX_MOVE 25
-
-//Area di gioco
-static char halmaBoard[ROWS][COLUMNS] = {' '};
-
-//Icone giocatori
-char playerIcon1 = '*';
-char playerIcon2 = '+';
-
-//Menu principale
 void mainMenu(){
 
 }
 
-//Preparazione area di gioco iniziale
 void initializeBoard(char playerIcon1, char playerIcon2){
     int i = 0,
         j = 0;
@@ -43,7 +30,6 @@ void initializeBoard(char playerIcon1, char playerIcon2){
     }
 }
 
-//stampa il terreno del gioco
 void printMatrix(){
     int i = 0,
         j = 0;
@@ -58,7 +44,6 @@ void printMatrix(){
     }
 }
 
-//Sposta la pedina
 void move(){
 
 }
