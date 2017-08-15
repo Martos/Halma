@@ -1,3 +1,9 @@
+/*
+    Info : Vedi prototipo
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "../include/osx_utils.h"
 
 void consolePause() {
