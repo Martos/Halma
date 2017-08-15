@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 //Proprieta' del campo da gioco
 #define ROWS 16
@@ -9,6 +10,9 @@
 
 //Area di gioco
 static char halmaBoard[ROWS][COLUMNS] = {' '};
+
+//Flag per indicare se il giocatore è ancora in gioco
+static bool isPlaing = true;
 
 //Icone giocatori standard
 char playerIcon1;
