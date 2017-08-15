@@ -51,6 +51,7 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 int main(int argc, char const *argv[]){
 
     while(isPlaing){
+        screenClear();
         initializeBoard('*', '+');
         printMatrix();
         consolePause();

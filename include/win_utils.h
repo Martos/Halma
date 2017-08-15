@@ -4,3 +4,5 @@
 */
 
 void consolePause();
+
+void screenClear();

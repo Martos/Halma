@@ -3,3 +3,5 @@
     Desrizione : Libreria contenente funzioni di utilità per Linux
 */
 void consolePause();
+
+void screenClear();
