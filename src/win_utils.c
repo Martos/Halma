@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "../include/win_utils.h"
 
 void consolePause(){
