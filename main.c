@@ -35,7 +35,7 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 #include <stdlib.h>
 
 #ifdef linux
-
+    #include "./include/linux_utils.h"
 #endif
 
 #ifdef _WIN32
