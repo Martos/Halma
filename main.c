@@ -34,20 +34,27 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./include/gameEngine.h"
+#ifdef linux
 
-#ifdef __linux__ 
-        
-    #elif _WIN32
-        #include "./include/win_utils.h"
-    #elif __APPLE__
-        #include "./include/osx_utils.h"
 #endif
+
+#ifdef _WIN32
+    #include "./include/win_utils.h"
+#endif
+
+#ifdef __APPLE__
+    #include "./include/osx_utils.h"
+#endif
+
+#include "./include/gameEngine.h"
 
 int main(int argc, char const *argv[]){
 
-    initializeBoard('*', '+');
-    printMatrix();
+    while(isPlaing){
+        initializeBoard('*', '+');
+        printMatrix();
+        consolePause();
+    }
 
     return 0;
 }
