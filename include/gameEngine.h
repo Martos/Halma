@@ -14,12 +14,16 @@ static char halmaBoard[ROWS][COLUMNS] = {' '};
 //Flag per indicare se il giocatore è ancora in gioco
 static bool isPlaing = true;
 
+//Punteggi giocatori
+static int score1 = 0,
+           score2 = 0;
+
 //Icone giocatori standard
 char playerIcon1;
 char playerIcon2;
 
 //Menu principale
-void mainMenu();
+int mainMenu();
 
 //Preparazione area di gioco iniziale
 void initializeBoard(char playerIcon1, char playerIcon2);

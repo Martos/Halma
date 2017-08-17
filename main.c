@@ -50,12 +50,34 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 
 int main(int argc, char const *argv[]){
 
-    while(isPlaing){
-        screenClear();
-        initializeBoard('*', '+');
-        printMatrix();
-        consolePause();
+    int scelta;
+
+    scelta = mainMenu();
+
+    switch(scelta) {
+
+        case 1 : {
+            while(isPlaing){
+                screenClear();
+                printf("================\n");
+                printf("Giocatore 1 (*) : %d \n", score1);
+                printf("Giocatore 2 (+) : %d \n", score2);
+                printf("================\n");
+                initializeBoard('*', '+');
+                printMatrix();
+                consolePause();
+            }
+
+            break;
+        }
+
+        default : {
+            printf("Grazie per aver giocato ! \n");
+            break;
+        }
     }
+
+    consolePause();
 
     return 0;
 }

@@ -1,7 +1,17 @@
 #include "../include/gameEngine.h"
 
-void mainMenu(){
+int mainMenu(){
+    int scelta;
+    printf("=======================\n");
+    printf("        HALMA-CLI      \n");
+    printf("=======================\n");
 
+    printf("1) Gioca ! \n");
+    printf("0) Esci \n");
+
+    scanf("%d", &scelta);
+
+    return scelta;
 }
 
 void initializeBoard(char playerIcon1, char playerIcon2){
