@@ -7,6 +7,7 @@ int mainMenu(){
     printf("=======================\n");
 
     printf("1) Gioca ! \n");
+    printf("2) Personalizza icone \n");
     printf("0) Esci \n");
 
     scanf("%d", &scelta);
