@@ -1,5 +1,9 @@
+/*
+    Info : Vedi prototipo
+*/
 #include <stdlib.h>
-#include "../include/win_utils.h"
+
+#include "../include/utils.h"
 
 void consolePause() {
     system("pause");
