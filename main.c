@@ -77,11 +77,13 @@ int main(int argc, char const *argv[]){
         case 2 : {
             screenClear();
             printf("Inserisci il carattere da usare per il giocatore1 : ");
-            scanf(" %c", &icon1);
+            scanf(" %c",&icon1);
+            getchar();
             printf("\nInserisci il carattere da usare per il giocatore2 : ");
-            scanf(" %c", &icon2);
+            scanf(" %c",&icon2);
+            getchar();
             printf("\nGiocatore1 : %c - Giocatore2: %c \n", icon1, icon2);
-            printf("Icone impostate correttamente !");
+            printf("Icone impostate correttamente !\n");
 
             break;
         }
@@ -91,6 +93,7 @@ int main(int argc, char const *argv[]){
             break;
         }
     }
+
 
     consolePause();
 
