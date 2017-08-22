@@ -8,7 +8,7 @@
 
 void consolePause(){
     printf("\nPremi un tasto per continuare ...\n");
-    getch();
+    getchar();
 }
 
 void screenClear() {
