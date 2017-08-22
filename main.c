@@ -55,16 +55,36 @@ int main(int argc, char const *argv[]){
     char icon1 = '*',
          icon2 = '+';
 
-    scelta = mainMenu();
+    do {
+      screenClear();
 
-    switch(scelta) {
+      printf("======================\n");
+      printf("%%  Halma-Cli V0.2  %%\n");
+      printf("======================\n");
+      printf("\n");
+      printf("1) Inizia il gioco \n");
+      printf("2) Personalizza icone giocatore\n");
+      printf("0) Chiudi l'applicazione\n");
+      printf("\n");
+
+      do {
+        printf("$ ");
+        scanf("%d", &scelta);
+
+        if (scelta < 0 || scelta > 2) {
+          errorHandler(1);
+        }
+      }
+      while((scelta < 0 || scelta > 2));
+
+        switch(scelta) {
 
         case 1 : {
             while(isPlaing){
                 screenClear();
                 printf("================\n");
-                printf("Giocatore 1 (*) : %d \n", score1);
-                printf("Giocatore 2 (+) : %d \n", score2);
+                printf("Giocatore 1 (%c) : %d \n", icon1, score1);
+                printf("Giocatore 2 (%c) : %d \n", icon2, score2);
                 printf("================\n");
                 initializeBoard(icon1, icon2);
                 printMatrix();
@@ -88,13 +108,11 @@ int main(int argc, char const *argv[]){
             break;
         }
 
-        default : {
-            printf("Grazie per aver giocato ! \n");
-            break;
-        }
-    }
+      }
 
+    } while (scelta != 0);
 
+    printf("Halma exiting ...\n");
     consolePause();
 
     return 0;
