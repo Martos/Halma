@@ -2,8 +2,8 @@
 #include <stdbool.h>
 
 //Proprieta' del campo da gioco
-#define ROWS 16
-#define COLUMNS 16
+#define ROWS 8
+#define COLUMNS 8
 
 //Mosse massime possibili
 #define MAX_MOVE 25
@@ -18,9 +18,12 @@ static bool isPlaing = true;
 static int score1 = 0,
            score2 = 0;
 
+//Mosse rimanenti
+static int mosse = 25;
+
 //Icone giocatori standard
-char playerIcon1;
-char playerIcon2;
+char playerIcon1,
+     playerIcon2;
 
 //Error catcher
 void errorHandler(int code);
@@ -32,4 +35,4 @@ void initializeBoard(char playerIcon1, char playerIcon2);
 void printMatrix();
 
 //Sposta la pedina
-void move();
+void move(int x, int y, char giocatore);
