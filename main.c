@@ -74,8 +74,7 @@ int main(int argc, char const *argv[]){
         if (scelta < 0 || scelta > 2) {
           errorHandler(1);
         }
-      }
-      while((scelta < 0 || scelta > 2));
+      } while((scelta < 0 || scelta > 2));
 
         switch(scelta) {
 
