@@ -81,13 +81,21 @@ int main(int argc, char const *argv[]){
 
         case 1 : {
             while(isPlaing){
+                int x,
+                    y;
+
                 screenClear();
-                printf("================\n");
+                printf("=====================\n");
                 printf("Giocatore 1 (%c) : %d \n", icon1, score1);
                 printf("Giocatore 2 (%c) : %d \n", icon2, score2);
-                printf("================\n");
+                printf("Mosse rimanenti : %d \n", mosse);
+                printf("=====================\n");
                 initializeBoard(icon1, icon2);
                 printMatrix();
+                printf("\n");
+                printf("Giocatore 1 \n");
+                printf("Quale pedina vuoi muovere ? (x,y) \n");
+                scanf("%i %i", &x, &y);
                 consolePause();
             }
 
