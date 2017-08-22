@@ -22,8 +22,8 @@ static int score1 = 0,
 char playerIcon1;
 char playerIcon2;
 
-//Menu principale
-int mainMenu();
+//Error catcher
+void errorHandler(int code);
 
 //Preparazione area di gioco iniziale
 void initializeBoard(char playerIcon1, char playerIcon2);

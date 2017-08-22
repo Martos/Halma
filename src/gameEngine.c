@@ -1,18 +1,9 @@
 #include "../include/gameEngine.h"
 
-int mainMenu(){
-    int scelta;
-    printf("=======================\n");
-    printf("        HALMA-CLI      \n");
-    printf("=======================\n");
-
-    printf("1) Gioca ! \n");
-    printf("2) Personalizza icone \n");
-    printf("0) Esci \n");
-
-    scanf("%d", &scelta);
-
-    return scelta;
+void errorHandler(int code) {
+    if (code == 1) {
+        printf("Error code [%d] : Errore input \n", code);
+    }
 }
 
 void initializeBoard(char playerIcon1, char playerIcon2){
