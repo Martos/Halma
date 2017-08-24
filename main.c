@@ -58,9 +58,9 @@ int main(int argc, char const *argv[]){
     do {
       screenClear();
 
-      printf("======================\n");
+      printf("\033[22;34m======================\033[0m\n");
       printf("%%  Halma-Cli V0.2  %%\n");
-      printf("======================\n");
+      printf("\033[22;34m======================\033[0m\n");
       printf("\n");
       printf("1) Inizia il gioco \n");
       printf("2) Personalizza icone giocatore\n");
@@ -79,9 +79,13 @@ int main(int argc, char const *argv[]){
         switch(scelta) {
 
         case 1 : {
+            initializeBoard(icon1, icon2);
             while(isPlaing){
-                int x,
-                    y;
+                // Coordinate per lo spostamento della pedina
+                int destX,
+                    destY,
+                    holdX = 0,
+                    holdY = 0;
 
                 screenClear();
                 printf("=====================\n");
@@ -89,12 +93,14 @@ int main(int argc, char const *argv[]){
                 printf("Giocatore 2 (%c) : %d \n", icon2, score2);
                 printf("Mosse rimanenti : %d \n", mosse);
                 printf("=====================\n");
-                initializeBoard(icon1, icon2);
                 printMatrix();
                 printf("\n");
                 printf("Giocatore 1 \n");
-                printf("Quale pedina vuoi muovere ? (x,y) \n");
-                scanf("%i %i", &x, &y);
+                printf("Quale pedina vuoi muovere ? (x y) \n");
+                scanf("%i %i", &holdX, &holdY);
+                printf("Dove la vuoi posizionare ? (x y) \n");
+                scanf("%i %i", &destX, &destY);
+                move(holdX, holdY, destX, destY, icon1);
                 consolePause();
             }
 
