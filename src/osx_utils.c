@@ -7,8 +7,16 @@
 #include "../include/utils.h"
 
 void consolePause() {
-    system( "read -n 1 -s -p \"Premi un tasto per continuare...\"" );
-    printf("\n");
+    int c;
+    do {
+        c = getchar();
+    }while(c != '\n' && c != EOF);
+    if (c == EOF) {
+        // input stream ended, do something about it, exit perhaps
+    } else {
+        printf("\nPremi un tasto per continuare ...\n");
+        getchar();
+    }
 }
 
 void screenClear() {
