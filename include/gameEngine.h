@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 //Proprieta' del campo da gioco
 #define ROWS 8
@@ -35,4 +36,6 @@ void initializeBoard(char playerIcon1, char playerIcon2);
 void printMatrix();
 
 //Sposta la pedina
-void move(int x, int y, char giocatore);
+void move(int holdX, int holdY, 
+          int destX, int destY, 
+          char giocatore);
