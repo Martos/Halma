@@ -29,6 +29,9 @@ char playerIcon1,
 //Error catcher
 void errorHandler(int code);
 
+//Funzione per impostare le icone giocatore
+void setIcon(char icon1, char icon2);
+
 //Preparazione area di gioco iniziale
 void initializeBoard(char playerIcon1, char playerIcon2);
 

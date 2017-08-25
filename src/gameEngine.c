@@ -1,4 +1,5 @@
 #include "../include/gameEngine.h"
+#include "../include/utils.h"
 
 void errorHandler(int code) {
 
@@ -8,6 +9,11 @@ void errorHandler(int code) {
         default : { printf("Errore sconosciuto \n"); break; }
     }
 
+}
+
+void setIcon(char icon1, char icon2) {
+    playerIcon1 = icon1;
+    playerIcon2 = icon2;
 }
 
 void initializeBoard(char playerIcon1, char playerIcon2) {
@@ -35,13 +41,18 @@ void printMatrix() {
     int i = 0,
         j = 0;
     
-    printf("\033[22;33m\n     0  1  2  3  4  5  6  7 \033[0m\n");
+    printf("%s\n     0  1  2  3  4  5  6  7 %s\n", ANSI_COLOR_YELLOW, ANSI_COLOR_RESET);
     printf("\n");
     for(i = 0; i < ROWS; i++){
-        printf("\033[22;33m %d  \033[0m", i);
+        printf("%s %d  %s", ANSI_COLOR_YELLOW ,i , ANSI_COLOR_RESET);
         for(j = 0; j < COLUMNS; j++){
-            printf("[\033[22;34m%c\033[0m]", halmaBoard[i][j]);
-            if(j == COLUMNS - 1) printf("\033[0m \n");
+            char app = halmaBoard[i][j];
+            if( app == playerIcon1 ){
+                printf("[%s%c%s]", ANSI_COLOR_BLUE, halmaBoard[i][j], ANSI_COLOR_RESET);
+            } else {
+                printf("[%s%c%s]", ANSI_COLOR_RED, halmaBoard[i][j], ANSI_COLOR_RESET);
+            }
+            if(j == COLUMNS - 1) printf(" \n");
         }
     }
 }
@@ -52,6 +63,7 @@ void move(int holdX, int holdY, int destX, int destY, char giocatore) {
     if (app == giocatore) {
         halmaBoard[holdX][holdY] = ' ';
         halmaBoard[destX][destY] = app;
+        mosse--;
     } else 
         printf("Invalid \n");
 }
