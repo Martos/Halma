@@ -43,7 +43,6 @@ void printMatrix() {
             printf("[\033[22;34m%c\033[0m]", halmaBoard[i][j]);
             if(j == COLUMNS - 1) printf("\033[0m \n");
         }
-
     }
 }
 
