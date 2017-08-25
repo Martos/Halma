@@ -96,8 +96,8 @@ int main(int argc, char const *argv[]){
 
                 screenClear();
                 printf("=====================\n");
-                printf("Giocatore 1 (%c) : %d \n", playerIcon1, score1);
-                printf("Giocatore 2 (%c) : %d \n", playerIcon2, score2);
+                printf("Giocatore 1 (%s%c%s) : %d \n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET, score1);
+                printf("Giocatore 2 (%s%c%s) : %d \n", ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET, score2);
                 printf("Mosse rimanenti : %d \n", mosse);
                 printf("=====================\n");
                 printMatrix();
