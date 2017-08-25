@@ -35,8 +35,11 @@ void setIcon(char icon1, char icon2);
 //Preparazione area di gioco iniziale
 void initializeBoard(char playerIcon1, char playerIcon2);
 
-//stampa il terreno del gioco
+//Stampa il terreno del gioco
 void printMatrix();
+
+//Pannello del punteggio
+void scoreBoard();
 
 //Sposta la pedina
 void move(int holdX, int holdY, 

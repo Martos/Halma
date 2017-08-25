@@ -37,6 +37,14 @@ void initializeBoard(char playerIcon1, char playerIcon2) {
     }
 }
 
+void scoreBoard() {
+    printf("=====================\n");
+    printf("Giocatore 1 (%s%c%s) : %d \n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET, score1);
+    printf("Giocatore 2 (%s%c%s) : %d \n", ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET, score2);
+    printf("Mosse rimanenti : %d \n", mosse);
+    printf("=====================\n");
+}
+
 void printMatrix() {
     int i = 0,
         j = 0;
@@ -59,11 +67,11 @@ void printMatrix() {
 
 void move(int holdX, int holdY, int destX, int destY, char giocatore) {
     char app = halmaBoard[holdX][holdY];
+    bool validMove = false;
     printf("%c", app);
     if (app == giocatore) {
         halmaBoard[holdX][holdY] = ' ';
         halmaBoard[destX][destY] = app;
-        mosse--;
     } else 
         printf("Invalid \n");
 }
