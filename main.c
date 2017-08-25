@@ -142,7 +142,7 @@ int main(int argc, char const *argv[]){
 
         case 4 : {
             screenClear();
-            printf("HALMA-CLI V0.4  ");
+            printf("HALMA-CLI V0.4");
             printf("\n");
             printf("Videogioco OpenSource realizzato da Mauro Cipriani, Paolo Laddomada, Ivone Ciocia\n");
             printf("Visita la pagina web di github per maggiori informazioni !\n");
