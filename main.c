@@ -117,7 +117,8 @@ int main(int argc, char const *argv[]){
                 consolePause();
                 mosse--;
             }
-
+            printf("\nPartita conclusa !\n");
+            consolePause();
             break;
         }
 
