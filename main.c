@@ -36,14 +36,17 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 
 #ifdef linux
     #include "./include/utils.h"
+    #include "./src/linux_utils.c"
 #endif
 
 #ifdef _WIN32
     #include "./include/utils.h"
+    #include "./src/win_utils.c"
 #endif
 
 #ifdef __APPLE__
     #include "./include/utils.h"
+    #include "./src/osx_utils.c"
 #endif
 
 #include "./include/gameEngine.h"
