@@ -6,6 +6,7 @@ void errorHandler(int code) {
     switch(code) {
         case 1 : { printf("Error code [%d] : Errore input \n", code); break; }
         case 2 : { printf("Error code [%d] : Mossa invalida \n", code); break; }
+        case 3 : { printf("Error code [%d] : Impossibile impostare le icone per i giocatori uguali \n", code); break; }
         default : { printf("Errore sconosciuto \n"); break; }
     }
 
@@ -14,6 +15,13 @@ void errorHandler(int code) {
 void setIcon(char icon1, char icon2) {
     playerIcon1 = icon1;
     playerIcon2 = icon2;
+
+    if(icon1 == icon2){
+        errorHandler(3);
+        playerIcon1 = '*';
+        playerIcon2 = '+';
+        printf("Impostate icone di default \n");
+    }
 }
 
 void initializeBoard(char playerIcon1, char playerIcon2) {
