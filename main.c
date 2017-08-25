@@ -194,6 +194,7 @@ int main(int argc, char const *argv[]){
             printf("        -Esegui con RUN HALMA.EXE\n");
             printf("        -Enjoy !\n");
             printf("        *Se vuoi rendere globale l'utilizzo del gioco a tutti gli utenti, sposta il file exe nella cartella $dka100:[sys0] e imposta l'alias HALMA :== $DKA100:[sys0]HALMA:EXE. Puoi anche impostare i permessi con SET PROC/ALL HALMA.EXE\n");
+            printf("        **VAX/IA64 la procedura di compilazione e' equivalente con delle accortezze, ovvero sostituire i dischi con DUA100\n");
             consolePause();
             break;
         }
