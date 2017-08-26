@@ -45,3 +45,6 @@ void scoreBoard();
 bool move(int holdX, int holdY, 
           int destX, int destY, 
           char giocatore);
+
+//Funzione per la guida al gioco
+void gameGuide();

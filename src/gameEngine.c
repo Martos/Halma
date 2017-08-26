@@ -87,3 +87,7 @@ bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
     }
 
 }
+
+void gameGuide() {
+    
+}
