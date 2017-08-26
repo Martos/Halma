@@ -7,7 +7,7 @@
 #define COLUMNS 8
 
 //Mosse massime possibili
-#define MAX_MOVE 25
+#define MAX_MOVE 30
 
 //Area di gioco
 static char halmaBoard[ROWS][COLUMNS] = {' '};
@@ -20,7 +20,7 @@ static int score1 = 0,
            score2 = 0;
 
 //Mosse rimanenti
-static int mosse = 25;
+static int mosse = 30;
 
 //Icone giocatori standard
 char playerIcon1,
