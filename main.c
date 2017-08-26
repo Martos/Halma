@@ -94,27 +94,34 @@ int main(int argc, char const *argv[]){
                     holdX = 0,
                     holdY = 0;
 
-                screenClear();
-                scoreBoard();
-                printMatrix();
-                printf("\n");
-                printf("Giocatore 1 \n");
-                printf("Quale pedina vuoi muovere ? (x y) \n");
-                scanf("%i %i", &holdX, &holdY);
-                printf("Dove la vuoi posizionare ? (x y) \n");
-                scanf("%i %i", &destX, &destY);
-                move(holdX, holdY, destX, destY, icon1);
-                screenClear();
-                scoreBoard();
-                printMatrix();
-                printf("\n");
-                printf("Giocatore 2 \n");
-                printf("Quale pedina vuoi muovere ? (x y) \n");
-                scanf("%i %i", &holdX, &holdY);
-                printf("Dove la vuoi posizionare ? (x y) \n");
-                scanf("%i %i", &destX, &destY);
-                move(holdX, holdY, destX, destY, icon2);
-                consolePause();
+                bool validMove;
+
+                do {
+                    screenClear();
+                    scoreBoard();
+                    printMatrix();
+                    printf("\n");
+                    printf("Giocatore 1 \n");
+                    printf("Quale pedina vuoi muovere ? (x y) \n");
+                    scanf("%i %i", &holdX, &holdY);
+                    printf("Dove la vuoi posizionare ? (x y) \n");
+                    scanf("%i %i", &destX, &destY);
+                    validMove = move(holdX, holdY, destX, destY, icon1);
+                } while (validMove == false);
+
+                do {
+                    screenClear();
+                    scoreBoard();
+                    printMatrix();
+                    printf("\n");
+                    printf("Giocatore 2 \n");
+                    printf("Quale pedina vuoi muovere ? (x y) \n");
+                    scanf("%i %i", &holdX, &holdY);
+                    printf("Dove la vuoi posizionare ? (x y) \n");
+                    scanf("%i %i", &destX, &destY);
+                    validMove = move(holdX, holdY, destX, destY, icon2);
+                } while (validMove == false);
+                //consolePause();
                 mosse--;
             }
             printf("\nPartita conclusa !\n");

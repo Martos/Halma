@@ -73,13 +73,17 @@ void printMatrix() {
     }
 }
 
-void move(int holdX, int holdY, int destX, int destY, char giocatore) {
+bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
     char app = halmaBoard[holdX][holdY];
-    bool validMove = false;
-    printf("%c", app);
+
     if (app == giocatore) {
         halmaBoard[holdX][holdY] = ' ';
         halmaBoard[destX][destY] = app;
-    } else 
-        printf("Invalid \n");
+        return true;
+    } else {
+        errorHandler(2);
+        consolePause();
+        return false;
+    }
+
 }

@@ -42,6 +42,6 @@ void printMatrix();
 void scoreBoard();
 
 //Sposta la pedina
-void move(int holdX, int holdY, 
+bool move(int holdX, int holdY, 
           int destX, int destY, 
           char giocatore);
