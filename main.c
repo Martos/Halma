@@ -49,6 +49,11 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
     #include "./src/osx_utils.c"
 #endif
 
+#ifdef __alpha
+    #include "./include/utils.h"
+    #include "./src/win_utils.c"
+#endif
+
 #include "./include/gameEngine.h"
 
 int main(int argc, char const *argv[]){
