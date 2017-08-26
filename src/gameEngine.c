@@ -89,6 +89,21 @@ bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
 }
 
 void gameGuide() {
-    printf("ciaooo\n");
-    
+   printf("Il gioco della Halma e' un gioco per due persone.\n");
+   printf("Il tavoliere e' costituito da 8x8 caselle.\n \n");
+   printf("Lo scopo del gioco e' di muovere le proprie pedine dentro tutte le caselle nella zona di partenza dell'avversario.\n");
+   printf("Il giocatore che realizza questo per primo, vince.\n");
+   printf("Al proprio turno ciascun giocatore puo'muovere solo una pedina. \n"); 
+   printf("La pedina puo' muovere di uno spazio in qualsiasi direzione purche' la casella di arrivo sia vuota.\n \n");
+   printf("Le pedine possono anche saltare pedine dell'avversario.\n");
+   printf("Il salto non e' obbligatorio e puo' essere effettuato in tutte le direzioni.\n");
+   printf("La pedina puo' solo saltare sopra un'altra pedina verso una casella vuota sulla quale atterrera'.\n"); 
+   printf("Se la posizione di arrivo lo permette e' possibile eseguire ulteriori salti.\n \n");
+   printf("Le pedine saltate non vengono rimosse ma tutte rimangono sulla tavola di gioco fino alla fine della partita.\n \n");
+   printf("La partita finisce quando viene soddisfatta una delle seguenti condizioni: \n \n");
+   printf(" -Uno dei giocatori ha mosso tutte le pedine nella zona di partenza dell'avversario.\n  Questo giocatore vince la partita.\n\n");
+   printf(" -Uno dei giocatori ha ancora una o piu' pedine nella propria zona di partenza dopo la 30esima mossa. Questo giocatore perde la partita.\n\n");
+   printf(" -Il giocatore che ritorna su una delle sue caselle di partenza dopo la 30esima mossa ha altresì perso la partita.\n"); 
+   printf("  Questa regola punisce quei giocatori che lasciano e(o) ritornano nelle caselle della propria zona di partenza impedendone l'accesso all'avversario.\n\n\n");
 }
+

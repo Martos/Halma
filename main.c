@@ -150,6 +150,9 @@ int main(int argc, char const *argv[]){
         }
 
         case 3 : {
+            screenClear();
+            gameGuide();
+            consolePause();
             break;
         }
 
