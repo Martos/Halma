@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "../include/utils.h"
+
 //Proprieta' del campo da gioco
 #define ROWS 8
 #define COLUMNS 8

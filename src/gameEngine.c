@@ -1,5 +1,4 @@
 #include "../include/gameEngine.h"
-#include "../include/utils.h"
 
 void errorHandler(int code) {
 
