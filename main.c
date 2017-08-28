@@ -85,6 +85,7 @@ int main(int argc, char const *argv[]){
       printf("%s2%s) Personalizza icone giocatore \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
       printf("%s3%s) Guida al gioco \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
       printf("%s4%s) Informazioni \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+      printf("%s5%s) Extra \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
       printf("%s0%s) Chiudi l'applicazione \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
       printf("\n");
 
@@ -92,10 +93,10 @@ int main(int argc, char const *argv[]){
         printf("$ ");
         scanf("%d", &scelta);
 
-        if (scelta < 0 || scelta > 4) {
+        if (scelta < 0 || scelta > 5) {
           errorHandler(1);
         }
-      } while((scelta < 0 || scelta > 4));
+      } while((scelta < 0 || scelta > 5));
 
         switch(scelta) {
 
@@ -227,6 +228,25 @@ int main(int argc, char const *argv[]){
             printf("        -Enjoy !\n");
             printf("        *Se vuoi rendere globale l'utilizzo del gioco a tutti gli utenti, sposta il file exe nella cartella $dka100:[sys0] e imposta l'alias HALMA :== $DKA100:[sys0]HALMA:EXE. Puoi anche impostare i permessi con SET PROC/ALL HALMA.EXE\n");
             printf("        **VAX/IA64 la procedura di compilazione e' equivalente con delle accortezze, ovvero sostituire i dischi con DUA100\n");
+            consolePause();
+            break;
+        }
+
+        case 5 : {
+            screenClear();
+            printf("Grazie per aver provato Halma-Cli ! Il videogioco open-source che non ha bisogno di troppe risorse per divertire ;)\n");
+            printf("\n%sCOMMENTI DEGLI UTENTI CHE LO HANNO PROVATO%s\n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+            printf("%s-%s Utile per rilassarsi dopo il lavoro (Andrea Gargiulo on Centos7)\n\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+            printf("%s-%s Un buon prodotto per chi non ha esigenze particolari (Kevin Tafuro on OpenVMS)\n\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+            printf("%s-%s Colorato e divertente (Michela Stevanato on OSX)\n\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+            printf("%sTECNOLOGIE IMPIEGATE%s\n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+            printf("Solo ANSI C, nient'altro ! Garantendo efficenza su macchine con risorse ridotte e facilita' di installazione\n\n");
+            printf("%sSVILUPPATORI\n%s", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+            printf("%s-%s Mauro Cipriani \n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+            printf("%s-%s Paolo Laddomada \n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+            printf("%s-%s Ivonne Ciocia \n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+            printf("\n%sLICENZE%s\n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+            printf("%s-%s Il software gode di licenza GPL (General Public License)\n ", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             consolePause();
             break;
         }
