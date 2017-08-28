@@ -4,9 +4,9 @@
 void errorHandler(int code) {
 
     switch(code) {
-        case 1 : { printf("Error code [%d] : Errore input \n", code); break; }
-        case 2 : { printf("Error code [%d] : Mossa invalida \n", code); break; }
-        case 3 : { printf("Error code [%d] : Impossibile impostare le icone per i giocatori uguali \n", code); break; }
+        case 1 : { printf("%sError code [%d] %s: Errore input \n", ANSI_COLOR_RED, code, ANSI_COLOR_RESET); break; }
+        case 2 : { printf("%sError code [%d] %s: Mossa invalida \n", ANSI_COLOR_RED, code, ANSI_COLOR_RESET); break; }
+        case 3 : { printf("%sError code [%d] %s: Impossibile impostare le icone per i giocatori uguali \n", ANSI_COLOR_RED, code, ANSI_COLOR_RESET); break; }
         default : { printf("Errore sconosciuto \n"); break; }
     }
 
