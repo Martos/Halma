@@ -108,9 +108,9 @@ int main(int argc, char const *argv[]){
                     printf("\n");
                     printf("Giocatore 1 \n");
                     printf("Quale pedina vuoi muovere ? (x y) \n");
-                    scanf("%i %i", &holdX, &holdY);
+                    scanf("%i %i", &holdY, &holdX);
                     printf("Dove la vuoi posizionare ? (x y) \n");
-                    scanf("%i %i", &destX, &destY);
+                    scanf("%i %i", &destY, &destX);
                     validMove = move(holdX, holdY, destX, destY, icon1);
                 } while (validMove == false);
 
@@ -121,9 +121,9 @@ int main(int argc, char const *argv[]){
                     printf("\n");
                     printf("Giocatore 2 \n");
                     printf("Quale pedina vuoi muovere ? (x y) \n");
-                    scanf("%i %i", &holdX, &holdY);
+                    scanf("%i %i", &holdY, &holdX);
                     printf("Dove la vuoi posizionare ? (x y) \n");
-                    scanf("%i %i", &destX, &destY);
+                    scanf("%i %i", &destY, &destX);
                     validMove = move(holdX, holdY, destX, destY, icon2);
                 } while (validMove == false);
                 //consolePause();
