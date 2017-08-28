@@ -37,21 +37,29 @@ WebSite         : www.galaxyserver.ovh/consoleHalma
 #ifdef linux
     #include "./include/utils.h"
     #include "./src/linux_utils.c"
+
+    #define PLATFORM "Linux"
 #endif
 
 #ifdef _WIN32
     #include "./include/utils.h"
     #include "./src/win_utils.c"
+
+    #define PLATFORM "Windows"
 #endif
 
 #ifdef __APPLE__
     #include "./include/utils.h"
     #include "./src/osx_utils.c"
+
+    #define PLATFORM "OSX"
 #endif
 
 #ifdef __alpha
     #include "./include/utils.h"
     #include "./src/win_utils.c"
+
+    #define PLATFORM "OpenVMS"
 #endif
 
 #include "./include/gameEngine.h"
@@ -68,15 +76,16 @@ int main(int argc, char const *argv[]){
     do {
       screenClear();
 
-      printf("%s=====================%s\n", ANSI_COLOR_BLUE, ANSI_COLOR_RESET);
-      printf("%%  Halma-Cli V0.2  %%\n");
-      printf("%s=====================%s\n", ANSI_COLOR_BLUE, ANSI_COLOR_RESET);
+      printf("%s====================%s\n", ANSI_COLOR_BLUE, ANSI_COLOR_RESET);
+      printf("%%  %sHalma-Cli V%s%s  %%\n", ANSI_COLOR_YELLOW, PRODUCT_VERSION, ANSI_COLOR_RESET);
+      printf("    %s Version       \n", PLATFORM);
+      printf("%s====================%s\n", ANSI_COLOR_BLUE, ANSI_COLOR_RESET);
       printf("\n");
-      printf("1) Inizia il gioco \n");
-      printf("2) Personalizza icone giocatore \n");
-      printf("3) Guida al gioco \n");
-      printf("4) Informazioni \n");
-      printf("0) Chiudi l'applicazione \n");
+      printf("%s1%s) Inizia il gioco \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+      printf("%s2%s) Personalizza icone giocatore \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+      printf("%s3%s) Guida al gioco \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+      printf("%s4%s) Informazioni \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
+      printf("%s0%s) Chiudi l'applicazione \n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
       printf("\n");
 
       do {
@@ -158,24 +167,24 @@ int main(int argc, char const *argv[]){
 
         case 4 : {
             screenClear();
-            printf("HALMA-CLI V0.4");
+            printf("HALMA-CLI V%s", PRODUCT_VERSION);
             printf("\n");
             printf("Videogioco OpenSource realizzato da Mauro Cipriani, Paolo Laddomada, Ivone Ciocia\n");
             printf("Visita la pagina web di github per maggiori informazioni !\n");
             printf("\n");
-            printf("PIATTAFORME SUPPORTATE\n");
+            printf("%sPIATTAFORME SUPPORTATE%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("-Windows : XPSP3, 7, 8.1, 10 (32/64)\n");
             printf("-OSX : 10.6 or earlier (64)\n");
             printf("-Linux : Ubuntu 14.04LTS or earlier, Centos7, Ubuntu Server 14.04LTS, ArchLinux (32/64)\n");
             printf("-OpenVMS : OpenVMS Alpha v8.4, OpenVMS VAX v7.3, OpenVMS IA64 v8.4\n");
             printf("\n");
-            printf("PIATTAFORME ATTUALMENTE TESTATE\n");
+            printf("%sPIATTAFORME ATTUALMENTE TESTATE%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("-Windows 10 (64) \n");
             printf("-OSX 10.13 (64) \n");
             printf("-Ubuntu Server 16.04 \n");
             printf("-OpenVMS Alpha v8.4 (REQUIRED GNV-PACKAGE - DOWNLOAD FROM http://h41379.www4.hpe.com/openvms/freeware/index.html)\n");
             printf("\n");
-            printf("REQUISITI RICHIESTI\n");
+            printf("%sREQUISITI RICHIESTI%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("    Windows\n");
             printf("        -CPU : x86 con 1ghz o superiore\n");
             printf("        -RAM : 1GB o superiore\n");
@@ -199,7 +208,7 @@ int main(int argc, char const *argv[]){
             printf("        -Connessione internet : Richiesta solo per aggiornare il prodotto\n");
             printf("        -License richieste : TCP/IP - HP C - GNV\n");
             printf("\n");
-            printf("COMPILA UNA NUOVA VERSIONE\n");
+            printf("%sCOMPILA UNA NUOVA VERSIONE%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("    Windows\n");
             printf("        -Esegui il file compiler.bat\n");
             printf("        -Segui le istruzioni a schermo\n");
