@@ -75,10 +75,15 @@ void printMatrix() {
 
 bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
     char app = halmaBoard[holdX][holdY];
-
-    if (app == giocatore) {
+    printf("%c - %c", app, giocatore);
+    if ( app == giocatore && ( halmaBoard[destX][destY] == ' ' ) && ( holdX - destX == 1 || holdY - destY == 1 || destX - holdX == 1 || destY - holdY == 1) ) {
         halmaBoard[holdX][holdY] = ' ';
         halmaBoard[destX][destY] = app;
+        return true;
+    } else if ( app == giocatore && ( halmaBoard[destX][destY] != ' ' && ( halmaBoard[destX+1][destY] == ' ' || halmaBoard[destX][destY+1] == ' ' ) ) ) {
+        halmaBoard[holdX][holdY] = ' ';
+        halmaBoard[destX][destY] = app; 
+        printf("JUMP\n");
         return true;
     } else {
         errorHandler(2);
