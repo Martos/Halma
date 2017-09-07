@@ -136,7 +136,6 @@ int main(int argc, char const *argv[]){
                     scanf("%i %i", &destY, &destX);
                     validMove = move(holdX, holdY, destX, destY, icon2);
                 } while (validMove == false);
-                //consolePause();
                 mosse--;
             }
             printf("\nPartita conclusa !\n");
