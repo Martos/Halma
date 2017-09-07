@@ -116,7 +116,7 @@ int main(int argc, char const *argv[]){
                     scoreBoard();
                     printMatrix();
                     printf("\n");
-                    printf("Giocatore 1 \n");
+                    printf("Giocatore 1 (%s%c%s)\n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET);
                     printf("Quale pedina vuoi muovere ? (x y) \n");
                     scanf("%i %i", &holdY, &holdX);
                     printf("Dove la vuoi posizionare ? (x y) \n");
@@ -129,7 +129,7 @@ int main(int argc, char const *argv[]){
                     scoreBoard();
                     printMatrix();
                     printf("\n");
-                    printf("Giocatore 2 \n");
+                    printf("Giocatore 2 (%s%c%s)\n",ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET);
                     printf("Quale pedina vuoi muovere ? (x y) \n");
                     scanf("%i %i", &holdY, &holdX);
                     printf("Dove la vuoi posizionare ? (x y) \n");
@@ -237,7 +237,6 @@ int main(int argc, char const *argv[]){
             printf("\n%sCOMMENTI DEGLI UTENTI CHE LO HANNO PROVATO%s\n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
             printf("%s-%s Utile per rilassarsi dopo il lavoro (Andrea Gargiulo on Centos7)\n\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("%s-%s Un buon prodotto per chi non ha esigenze particolari (Kevin Tafuro on OpenVMS)\n\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
-            printf("%s-%s Colorato e divertente (Michela Stevanato on OSX)\n\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("%sTECNOLOGIE IMPIEGATE%s\n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
             printf("Solo ANSI C, nient'altro ! Garantendo efficenza su macchine con risorse ridotte e facilita' di installazione\n\n");
             printf("%sSVILUPPATORI\n%s", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
