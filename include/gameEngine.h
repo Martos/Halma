@@ -11,7 +11,7 @@
 // Mosse massime possibili
 #define MAX_MOVE 30
 
-#define PRODUCT_VERSION "0.7"
+#define PRODUCT_VERSION "0.9"
 
 // Area di gioco
 static char halmaBoard[ROWS][COLUMNS] = {' '};
