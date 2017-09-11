@@ -101,8 +101,10 @@ int main(int argc, char const *argv[]){
         switch(scelta) {
 
         case 1 : {
+            bool validMove = false;
+            bool endGame = false;
+
             initializeBoard(playerIcon1, playerIcon2);
-            mosse = 30;
 
             do {
                 // Coordinate per lo spostamento della pedina
@@ -111,9 +113,8 @@ int main(int argc, char const *argv[]){
                     holdX = 0,
                     holdY = 0;
 
-                bool validMove;
-
                 do {
+                    endGame = checkEndGame();
                     screenClear();
                     scoreBoard();
                     printMatrix();
@@ -127,6 +128,7 @@ int main(int argc, char const *argv[]){
                 } while(!validMove);
 
                 do {
+                    endGame = checkEndGame();
                     screenClear();
                     scoreBoard();
                     printMatrix();
@@ -139,7 +141,7 @@ int main(int argc, char const *argv[]){
                     validMove = move(holdX, holdY, destX, destY, icon2);
                 } while(!validMove);
 
-            } while (mosse <= 0);
+            } while (!endGame);
 
             screenClear();
             checkScore();

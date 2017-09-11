@@ -24,6 +24,9 @@ void setIcon(char icon1, char icon2) {
 }
 
 void initializeBoard(char playerIcon1, char playerIcon2) {
+
+    mosse = 30;
+
     int i = 0,
         j = 0;
 
@@ -180,5 +183,14 @@ void checkScore() {
 
         }
     }
+
+}
+
+bool checkEndGame() {
+
+    if (mosse <= 0) 
+        return true;
+     else 
+        return false;
 
 }

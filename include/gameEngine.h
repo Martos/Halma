@@ -22,8 +22,8 @@ static bool isPlaing = true;
 static int score1 = 0,
            score2 = 0;
 
-// Mosse rimanenti
-static int mosse = 30;
+// Mosse del gioco
+static int mosse;
 
 // Icone giocatori standard
 char playerIcon1,
@@ -54,3 +54,6 @@ void gameGuide();
 
 // Funzione per il calcolo del punteggio
 void checkScore();
+
+// Funzione per terminare la partita
+bool checkEndGame();
