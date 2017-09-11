@@ -74,14 +74,26 @@ bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
     char app = halmaBoard[holdX][holdY];
     int distance = fabs( sqrt( pow(holdX-destX, 2) + pow(holdY-destY, 2) ) );
 
+    bool validMove = false;
+
     if (distance == 1 && app == giocatore) {
 
-        halmaBoard[holdX][holdY] = ' ';
-        halmaBoard[destX][destY] = app;
+        if (halmaBoard[destX][destY] != ' ') {
+            
+            validMove = false;
+            errorHandler(2);
+            consolePause();
+            
 
-        mosse--;
-        
-        return true;
+        } else {
+
+            validMove = true;
+            halmaBoard[holdX][holdY] = ' ';
+            halmaBoard[destX][destY] = app;
+    
+            mosse--;
+            
+        }
 
     } else if (distance == 2 && app == giocatore) {
 
@@ -89,25 +101,39 @@ bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
             || (halmaBoard[destX][destY - 1] != ' ' || halmaBoard[destX][destY + 1] != ' ') 
                 || (halmaBoard[destX+1][destY+1] != ' ' || halmaBoard[destX - 1][destY - 1] != ' '))) {
 
-            halmaBoard[holdX][holdY] = ' ';
-            halmaBoard[destX][destY] = app;
-            return true;
+                    if (halmaBoard[destX][destY] != ' ') {
+
+                        validMove = false;
+                        errorHandler(2);
+                        consolePause();
+                        
+                    } else {
+
+                        validMove = true;
+                        halmaBoard[holdX][holdY] = ' ';
+                        halmaBoard[destX][destY] = app;
+    
+                        mosse--;
+
+                    }
 
         } else {
 
+            validMove = false;
             errorHandler(2);
             consolePause();
-            return false;
 
         }
 
     } else {
 
+        validMove = false;
         errorHandler(2);
         consolePause();
-        return false;
 
     }
+
+    return validMove;
 
 }
 
@@ -137,12 +163,26 @@ void checkScore() {
 
 
     for (i = 0; i < ROWS; i++) {
+
         for (j = 0; j < COLUMNS; j++) {
+
+            // Punteggio giocatore 1
             if ( i == 0 && j < 4 && halmaBoard[i][j] != playerIcon1 ) {
                 score1++;
             } else if ( i == 1 && j < 3 && halmaBoard[i][j] != playerIcon1 ) {
                 score1++;
+            } else if ( i == 2 && j < 2 && halmaBoard[i][j] != playerIcon1) {
+                score1++;
+            } else if ( i == 3 && j < 1 && halmaBoard[i][j] != playerIcon1 ) {
+                score1++;
             }
+
+            // Punteggio giocatore 2
+            if(i == 7 && j > 3 && halmaBoard[i][j] != playerIcon2) {  score2++; }
+            else if(i == 6 && j > 4 && halmaBoard[i][j] != playerIcon2) { score2++; }
+            else if(i == 5 && j > 5 && halmaBoard[i][j] != playerIcon2) { score2++; }
+            else if(i == 4 && j > 6 && halmaBoard[i][j] != playerIcon2) { score2++; }
+
         }
     }
 
