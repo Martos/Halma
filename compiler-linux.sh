@@ -6,7 +6,7 @@ scelta=0
 
 #Funzioni
 compile(){
-    gcc src/gameEngine.c src/win_utils.c main.c -o Halma
+    gcc src/gameEngine.c main.c -lm -o Halma
     echo Soluzione compilata ...
 }
 
