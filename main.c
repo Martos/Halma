@@ -23,7 +23,7 @@
          \/____/                  \/____/                  \/____/          \/____/                  \/____/         
                                                                                                                      
 
-Author 			: Mauro Cipriani - Paolo Laddomada - Ivonne Ciocia
+Author 			: Mauro Cipriani - Paolo Laddomada
 Corso 			: ITPS [A-L]
 Nome progetto	: Halma
 Git             : https://github.com/Martos/Halma.git
@@ -102,7 +102,8 @@ int main(int argc, char const *argv[]){
 
         case 1 : {
             initializeBoard(playerIcon1, playerIcon2);
-            while(isPlaing && mosse >= 0){
+            
+            do {
                 // Coordinate per lo spostamento della pedina
                 int destX = 0,
                     destY = 0,
@@ -111,33 +112,38 @@ int main(int argc, char const *argv[]){
 
                 bool validMove;
 
-                do {
-                    screenClear();
-                    scoreBoard();
-                    printMatrix();
-                    printf("\n");
-                    printf("Giocatore 1 (%s%c%s)\n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET);
-                    printf("Quale pedina vuoi muovere ? (x y) \n");
-                    scanf("%i %i", &holdY, &holdX);
-                    printf("Dove la vuoi posizionare ? (x y) \n");
-                    scanf("%i %i", &destY, &destX);
-                    validMove = move(holdX, holdY, destX, destY, icon1);
-                } while (validMove == false);
+                if (mosse == 0) {
+                    printf("FINE GIOCO\n");
+                    consolePause();
+                }
 
-                do {
-                    screenClear();
-                    scoreBoard();
-                    printMatrix();
-                    printf("\n");
-                    printf("Giocatore 2 (%s%c%s)\n",ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET);
-                    printf("Quale pedina vuoi muovere ? (x y) \n");
-                    scanf("%i %i", &holdY, &holdX);
-                    printf("Dove la vuoi posizionare ? (x y) \n");
-                    scanf("%i %i", &destY, &destX);
-                    validMove = move(holdX, holdY, destX, destY, icon2);
-                } while (validMove == false);
-                mosse--;
-            }
+                screenClear();
+                scoreBoard();
+                printMatrix();
+                printf("\n");
+                printf("Giocatore 1 (%s%c%s)\n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET);
+                printf("Quale pedina vuoi muovere ? (x y) \n");
+                scanf("%i %i", &holdY, &holdX);
+                printf("Dove la vuoi posizionare ? (x y) \n");
+                scanf("%i %i", &destY, &destX);
+                validMove = move(holdX, holdY, destX, destY, icon1);
+
+                screenClear();
+                scoreBoard();
+                printMatrix();
+                printf("\n");
+                printf("Giocatore 2 (%s%c%s)\n",ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET);
+                printf("Quale pedina vuoi muovere ? (x y) \n");
+                scanf("%i %i", &holdY, &holdX);
+                printf("Dove la vuoi posizionare ? (x y) \n");
+                scanf("%i %i", &destY, &destX);
+                validMove = move(holdX, holdY, destX, destY, icon2);
+            } while (mosse == 0);
+
+            screenClear();
+            checkScore();
+            printf("\nGiocatore 1 : %d", score1);
+            printf("\nGiocatore 2 : %d", score2);
             printf("\nPartita conclusa !\n");
             consolePause();
             break;
@@ -242,7 +248,6 @@ int main(int argc, char const *argv[]){
             printf("%sSVILUPPATORI\n%s", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
             printf("%s-%s Mauro Cipriani \n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("%s-%s Paolo Laddomada \n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
-            printf("%s-%s Ivonne Ciocia \n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             printf("\n%sLICENZE%s\n", ANSI_COLOR_GREEN, ANSI_COLOR_RESET);
             printf("%s-%s Il software gode di licenza GPL (General Public License)\n ", ANSI_COLOR_RED, ANSI_COLOR_RESET);
             consolePause();
