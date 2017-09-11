@@ -1,15 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 #include "../include/utils.h"
 
 // Proprieta' del campo da gioco
 #define ROWS 8
 #define COLUMNS 8
-
-// Mosse massime possibili
-#define MAX_MOVE 30
 
 #define PRODUCT_VERSION "0.9"
 
@@ -50,7 +49,8 @@ bool move(int holdX, int holdY,
           int destX, int destY, 
           char giocatore);
 
-void checkJump(int holdX, int holdY, int destX, int destY, char giocatore);
-
 // Funzione per la guida al gioco
 void gameGuide();
+
+// Funzione per il calcolo del punteggio
+void checkScore();

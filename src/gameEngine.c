@@ -45,8 +45,6 @@ void initializeBoard(char playerIcon1, char playerIcon2) {
 
 void scoreBoard() {
     printf("=====================\n");
-    printf("Giocatore 1 (%s%c%s) : %d \n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET, score1);
-    printf("Giocatore 2 (%s%c%s) : %d \n", ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET, score2);
     printf("Mosse rimanenti : %d \n", mosse);
     printf("=====================\n");
 }
@@ -71,37 +69,44 @@ void printMatrix() {
     }
 }
 
-void checkJump(int holdX, int holdY, int destX, int destY, char giocatore) {
-
-    halmaBoard[holdX][holdY] = ' ';
-    halmaBoard[destX][destY] = giocatore;
-
-}
-
 bool move(int holdX, int holdY, int destX, int destY, char giocatore) {
+
     char app = halmaBoard[holdX][holdY];
+    int distance = fabs( sqrt( pow(holdX-destX, 2) + pow(holdY-destY, 2) ) );
 
-    if ( app == giocatore && ( halmaBoard[destX][destY] == ' ' ) && ( holdX - destX == 1 || holdY - destY == 1 || destX - holdX == 1 || destY - holdY == 1 ) ) {
-
-        //checkJump(holdX, holdY, destX, destY, app);
+    if (distance == 1 && app == giocatore) {
 
         halmaBoard[holdX][holdY] = ' ';
         halmaBoard[destX][destY] = app;
 
         mosse--;
-
+        
         return true;
-    } else if ( app == giocatore && ( halmaBoard[destX][destY] == ' ' ) && ( halmaBoard[destX+1][destY] != ' ' || halmaBoard[destX][destY+1] != ' ' || halmaBoard[destX+1][destY+1] != ' ' || halmaBoard[destX-1][destY] != ' ' || halmaBoard[destX][destY-1] != ' ' || halmaBoard[destX-1][destY-1] != ' ' ) ) {
 
-        checkJump(holdX, holdY, destX, destY, app);
+    } else if (distance == 2 && app == giocatore) {
 
-        mosse--;
+        if (halmaBoard[destX][destY] == ' ' && ((halmaBoard[destX - 1][destY] != ' ' || halmaBoard[destX + 1][destY] != ' ') 
+            || (halmaBoard[destX][destY - 1] != ' ' || halmaBoard[destX][destY + 1] != ' ') 
+                || (halmaBoard[destX+1][destY+1] != ' ' || halmaBoard[destX - 1][destY - 1] != ' '))) {
 
-        return true;
+            halmaBoard[holdX][holdY] = ' ';
+            halmaBoard[destX][destY] = app;
+            return true;
+
+        } else {
+
+            errorHandler(2);
+            consolePause();
+            return false;
+
+        }
+
     } else {
+
         errorHandler(2);
         consolePause();
         return false;
+
     }
 
 }
@@ -123,4 +128,22 @@ void gameGuide() {
    printf(" -Uno dei giocatori ha ancora una o piu' pedine nella propria zona di partenza dopo la 30esima mossa. Questo giocatore perde la partita.\n\n");
    printf(" -Il giocatore che ritorna su una delle sue caselle di partenza dopo la 30esima mossa ha altresì perso la partita.\n"); 
    printf("  Questa regola punisce quei giocatori che lasciano e(o) ritornano nelle caselle della propria zona di partenza impedendone l'accesso all'avversario.\n\n\n");
+}
+
+void checkScore() {
+
+    int i = 0,
+        j = 0;
+
+
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLUMNS; j++) {
+            if ( i == 0 && j < 4 && halmaBoard[i][j] != playerIcon1 ) {
+                score1++;
+            } else if ( i == 1 && j < 3 && halmaBoard[i][j] != playerIcon1 ) {
+                score1++;
+            }
+        }
+    }
+
 }
