@@ -167,18 +167,13 @@ void checkScore() {
         for (j = 0; j < COLUMNS; j++) {
 
             // Punteggio giocatore 1
-            if ( i == 0 && j < 4 && halmaBoard[i][j] != playerIcon1 ) {
-                score1++;
-            } else if ( i == 1 && j < 3 && halmaBoard[i][j] != playerIcon1 ) {
-                score1++;
-            } else if ( i == 2 && j < 2 && halmaBoard[i][j] != playerIcon1) {
-                score1++;
-            } else if ( i == 3 && j < 1 && halmaBoard[i][j] != playerIcon1 ) {
-                score1++;
-            }
+            if ( i == 0 && j < 4 && halmaBoard[i][j] != playerIcon1 ) { score1++; } 
+            else if ( i == 1 && j < 3 && halmaBoard[i][j] != playerIcon1 ) { score1++; } 
+            else if ( i == 2 && j < 2 && halmaBoard[i][j] != playerIcon1) { score1++; } 
+            else if ( i == 3 && j < 1 && halmaBoard[i][j] != playerIcon1 ) { score1++; }
 
             // Punteggio giocatore 2
-            if(i == 7 && j > 3 && halmaBoard[i][j] != playerIcon2) {  score2++; }
+            if(i == 7 && j > 3 && halmaBoard[i][j] != playerIcon2) { score2++; }
             else if(i == 6 && j > 4 && halmaBoard[i][j] != playerIcon2) { score2++; }
             else if(i == 5 && j > 5 && halmaBoard[i][j] != playerIcon2) { score2++; }
             else if(i == 4 && j > 6 && halmaBoard[i][j] != playerIcon2) { score2++; }
