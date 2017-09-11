@@ -102,7 +102,8 @@ int main(int argc, char const *argv[]){
 
         case 1 : {
             initializeBoard(playerIcon1, playerIcon2);
-            
+            mosse = 30;
+
             do {
                 // Coordinate per lo spostamento della pedina
                 int destX = 0,
@@ -112,33 +113,33 @@ int main(int argc, char const *argv[]){
 
                 bool validMove;
 
-                if (mosse == 0) {
-                    printf("FINE GIOCO\n");
-                    consolePause();
-                }
+                do {
+                    screenClear();
+                    scoreBoard();
+                    printMatrix();
+                    printf("\n");
+                    printf("Giocatore 1 (%s%c%s)\n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET);
+                    printf("Quale pedina vuoi muovere ? (x y) \n");
+                    scanf("%i %i", &holdY, &holdX);
+                    printf("Dove la vuoi posizionare ? (x y) \n");
+                    scanf("%i %i", &destY, &destX);
+                    validMove = move(holdX, holdY, destX, destY, icon1);
+                } while(!validMove);
 
-                screenClear();
-                scoreBoard();
-                printMatrix();
-                printf("\n");
-                printf("Giocatore 1 (%s%c%s)\n", ANSI_COLOR_BLUE, playerIcon1, ANSI_COLOR_RESET);
-                printf("Quale pedina vuoi muovere ? (x y) \n");
-                scanf("%i %i", &holdY, &holdX);
-                printf("Dove la vuoi posizionare ? (x y) \n");
-                scanf("%i %i", &destY, &destX);
-                validMove = move(holdX, holdY, destX, destY, icon1);
+                do {
+                    screenClear();
+                    scoreBoard();
+                    printMatrix();
+                    printf("\n");
+                    printf("Giocatore 2 (%s%c%s)\n",ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET);
+                    printf("Quale pedina vuoi muovere ? (x y) \n");
+                    scanf("%i %i", &holdY, &holdX);
+                    printf("Dove la vuoi posizionare ? (x y) \n");
+                    scanf("%i %i", &destY, &destX);
+                    validMove = move(holdX, holdY, destX, destY, icon2);
+                } while(!validMove);
 
-                screenClear();
-                scoreBoard();
-                printMatrix();
-                printf("\n");
-                printf("Giocatore 2 (%s%c%s)\n",ANSI_COLOR_RED, playerIcon2, ANSI_COLOR_RESET);
-                printf("Quale pedina vuoi muovere ? (x y) \n");
-                scanf("%i %i", &holdY, &holdX);
-                printf("Dove la vuoi posizionare ? (x y) \n");
-                scanf("%i %i", &destY, &destX);
-                validMove = move(holdX, holdY, destX, destY, icon2);
-            } while (mosse == 0);
+            } while (mosse <= 0);
 
             screenClear();
             checkScore();
