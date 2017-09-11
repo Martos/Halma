@@ -20,7 +20,7 @@ IF %M%==0 GOTO EOF
 GOTO ERROR_INPUT
 
 :COMPILE
-gcc .\src\gameEngine.c .\main.c -o Halma
+gcc .\src\gameEngine.c .\main.c -o HalmaWin
 echo Soluzione compilata ...
 pause
 GOTO MENU
