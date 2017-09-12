@@ -48,6 +48,9 @@ bool move(int holdX, int holdY,
 // Funzione per la guida al gioco
 void gameGuide();
 
+// Funzione per consultare le informazioni di gioco
+void info();
+
 // Funzione per il calcolo del punteggio
 void checkScore();
 
