@@ -10,17 +10,13 @@
 #define ROWS 8
 #define COLUMNS 8
 
-#define PRODUCT_VERSION "0.9"
+#define PRODUCT_VERSION "1.0"
 
 // Area di gioco
 static char halmaBoard[ROWS][COLUMNS] = {' '};
 
 // Flag per indicare se il giocatore è ancora in gioco
 static bool isPlaing = true;
-
-// Punteggi giocatori
-static int score1 = 0,
-           score2 = 0;
 
 // Mosse del gioco
 static int mosse;
