@@ -182,7 +182,7 @@ int main(int argc, char const *argv[]){
             screenClear();
             printf("HALMA-CLI V%s", PRODUCT_VERSION);
             printf("\n");
-            printf("Videogioco OpenSource realizzato da Mauro Cipriani, Paolo Laddomada, Ivone Ciocia\n");
+            printf("Videogioco OpenSource realizzato da Mauro Cipriani, Paolo Laddomada\n");
             printf("Visita la pagina web di github per maggiori informazioni !\n");
             printf("\n");
             printf("%sPIATTAFORME SUPPORTATE%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
