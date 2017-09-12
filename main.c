@@ -104,6 +104,9 @@ int main(int argc, char const *argv[]){
             bool validMove = false;
             bool endGame = false;
 
+            int score1 = 0,
+                score2 = 0;
+
             initializeBoard(playerIcon1, playerIcon2);
 
             do {
@@ -142,12 +145,13 @@ int main(int argc, char const *argv[]){
                 } while(!validMove);
 
             } while (!endGame);
-
+            screenClear();
+            scoreBoard();
+            printMatrix();
+            printf("\n\nPartita conclusa !\n");
+            consolePause();
             screenClear();
             checkScore();
-            printf("\nGiocatore 1 : %d", score1);
-            printf("\nGiocatore 2 : %d", score2);
-            printf("\nPartita conclusa !\n");
             consolePause();
             break;
         }
