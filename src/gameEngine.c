@@ -162,27 +162,78 @@ void gameGuide() {
 void checkScore() {
 
     int i = 0,
-        j = 0;
+        j = 0,
+        score1 = 0,
+        score2 = 0,
+        pedineRimosse1 = 0,
+        pedineRimosse2 = 0,
+        pedineRimaste1 = 0,
+        pedineRimaste2 = 0,
+        pedineZonaAvversario1 = 0,
+        pedineZonaAvversario2 = 0;
 
 
     for (i = 0; i < ROWS; i++) {
 
         for (j = 0; j < COLUMNS; j++) {
 
-            // Punteggio giocatore 1
-            if ( i == 0 && j < 4 && halmaBoard[i][j] != playerIcon1 ) { score1++; } 
-            else if ( i == 1 && j < 3 && halmaBoard[i][j] != playerIcon1 ) { score1++; } 
-            else if ( i == 2 && j < 2 && halmaBoard[i][j] != playerIcon1) { score1++; } 
-            else if ( i == 3 && j < 1 && halmaBoard[i][j] != playerIcon1 ) { score1++; }
+            // Giocatore 1 ha rimosso tutte le pedine nella zona di partenza, questo incrementa il punteggio
+            if ( i == 0 && j < 4 && halmaBoard[i][j] != playerIcon1 ) { pedineRimosse1++; score1++; } 
+            else if ( i == 1 && j < 3 && halmaBoard[i][j] != playerIcon1 ) { pedineRimosse1++; score1++; } 
+            else if ( i == 2 && j < 2 && halmaBoard[i][j] != playerIcon1) { pedineRimosse1++; score1++; } 
+            else if ( i == 3 && j < 1 && halmaBoard[i][j] != playerIcon1 ) { pedineRimosse1++; score1++; }
 
-            // Punteggio giocatore 2
-            if(i == 7 && j > 3 && halmaBoard[i][j] != playerIcon2) { score2++; }
-            else if(i == 6 && j > 4 && halmaBoard[i][j] != playerIcon2) { score2++; }
-            else if(i == 5 && j > 5 && halmaBoard[i][j] != playerIcon2) { score2++; }
-            else if(i == 4 && j > 6 && halmaBoard[i][j] != playerIcon2) { score2++; }
+            // Giocatore 2 ha rimosso tutte le pedine nella zona di partenza, questo incrementa il punteggio
+            if(i == 7 && j > 3 && halmaBoard[i][j] != playerIcon2) { pedineRimosse2++; score2++; }
+            else if(i == 6 && j > 4 && halmaBoard[i][j] != playerIcon2) { pedineRimosse2++; score2++; }
+            else if(i == 5 && j > 5 && halmaBoard[i][j] != playerIcon2) { pedineRimosse2++; score2++; }
+            else if(i == 4 && j > 6 && halmaBoard[i][j] != playerIcon2) { pedineRimosse2++; score2++; }
+            
+            // Il giocatore 1 ha ancora pedine nel punto di partenza, questo decrementa il punteggio
+            if ( i == 0 && j < 4 && halmaBoard[i][j] == playerIcon1 ) { pedineRimaste1++; score1--; } 
+            else if ( i == 1 && j < 3 && halmaBoard[i][j] == playerIcon1 ) { pedineRimaste1++; score1--; } 
+            else if ( i == 2 && j < 2 && halmaBoard[i][j] == playerIcon1) { pedineRimaste1++; score1--; } 
+            else if ( i == 3 && j < 1 && halmaBoard[i][j] == playerIcon1 ) { pedineRimaste1++; score1--; }
 
+            // Il giocatore 2 ha ancora pedine nel punto di partenza, questo decrementa il punteggio
+            if(i == 7 && j > 3 && halmaBoard[i][j] == playerIcon2) { pedineRimaste2++; score2--; }
+            else if(i == 6 && j > 4 && halmaBoard[i][j] == playerIcon2) { pedineRimaste2++; score2--; }
+            else if(i == 5 && j > 5 && halmaBoard[i][j] == playerIcon2) { pedineRimaste2++; score2--; }
+            else if(i == 4 && j > 6 && halmaBoard[i][j] == playerIcon2) { pedineRimaste2++; score2--; }
+
+            // Il giocatore 1 ha mosso le pedine nella zona di partenza dell'avversario, questo incrementa il punteggio
+            if(i == 7 && j > 3 && halmaBoard[i][j] == playerIcon1) { pedineZonaAvversario1++; score1++; }
+            else if(i == 6 && j > 4 && halmaBoard[i][j] == playerIcon1) { pedineZonaAvversario1++; score1++; }
+            else if(i == 5 && j > 5 && halmaBoard[i][j] == playerIcon1) { pedineZonaAvversario1++; score1++; }
+            else if(i == 4 && j > 6 && halmaBoard[i][j] == playerIcon1) { pedineZonaAvversario1++; score1++; }
+
+            // Il giocatore 2 ha mosso le pedine nella zona di partenza dell'avversario, questo incrementa il punteggio
+            if ( i == 0 && j < 4 && halmaBoard[i][j] == playerIcon2 ) { pedineZonaAvversario2++; score2++; } 
+            else if ( i == 1 && j < 3 && halmaBoard[i][j] == playerIcon2 ) { pedineZonaAvversario2++; score2++; } 
+            else if ( i == 2 && j < 2 && halmaBoard[i][j] == playerIcon2 ) { pedineZonaAvversario2++; score2++; } 
+            else if ( i == 3 && j < 1 && halmaBoard[i][j] == playerIcon2 ) { pedineZonaAvversario2++; score2++; }
         }
+
     }
+
+    printf("\n======PUNTEGGIO TOTALE======\n");
+    printf("Giocatore %s1%s : %d", ANSI_COLOR_BLUE, ANSI_COLOR_RESET, score1);
+    printf("\nGiocatore %s2%s : %d", ANSI_COLOR_RED, ANSI_COLOR_RESET, score2);
+
+    printf("\n\n======PUNTEGGIO DETTAGLIATO======\n");
+    printf("Pedine giocatore 1 rimosse dalla zona di partenza : %s+%d%s", ANSI_COLOR_BLUE, pedineRimosse1, ANSI_COLOR_RESET);
+    printf("\nPedine giocatore 2 rimosse dalla zona di partenza : %s+%d%s", ANSI_COLOR_RED, pedineRimosse2, ANSI_COLOR_RESET);
+    printf("\nPedine giocatore 1 non mosse : %s-%d%s", ANSI_COLOR_BLUE, pedineRimaste1, ANSI_COLOR_RESET);
+    printf("\nPedine giocatore 2 non mosse : %s-%d%s", ANSI_COLOR_RED, pedineRimaste2, ANSI_COLOR_RESET);
+    printf("\nPedine giocatore 1 in zona avversaria : %s+%d%s", ANSI_COLOR_BLUE, pedineZonaAvversario1, ANSI_COLOR_RESET);
+    printf("\nPedine giocatore 2 in zona avversaria : %s+%d%s", ANSI_COLOR_RED, pedineZonaAvversario2, ANSI_COLOR_RESET);
+
+    if (score1 > score2) {
+        printf("\n\nVince il giocatore 1 ! \n");
+    } else if (score2 > score1) {
+        printf("\n\nVince il giocatore 2 ! \n");
+    } else 
+        printf("\n\nPareggio ! \n");
 
 }
 
