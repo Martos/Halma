@@ -167,7 +167,7 @@ void info() {
     printf("Visita la pagina web di github per maggiori informazioni !\n");
     printf("\n");
     printf("%sPIATTAFORME SUPPORTATE%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
-    printf("-Windows : XPSP3, 7, 8.1, 10 (32/64)\n");
+    printf("-Windows : 8.1, 10 (32/64)\n");
     printf("-OSX : 10.6 or earlier (64)\n");
     printf("-Linux : Ubuntu 14.04LTS or earlier, Centos7, Ubuntu Server 14.04LTS, ArchLinux (32/64)\n");
     printf("-OpenVMS : OpenVMS Alpha v8.4, OpenVMS VAX v7.3, OpenVMS IA64 v8.4\n");
