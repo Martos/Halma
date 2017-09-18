@@ -1,2 +1,2 @@
 # Halma
-Halma for University
+The Halma game written in C ! Compile and run everywere !
